@@ -1,5 +1,8 @@
 # distribution
 
+*.html
+- 
+- `fredr` package for `R` found [here](https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html)
 
 # Virtual Environments
 env/
