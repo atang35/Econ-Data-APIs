@@ -1,0 +1,22 @@
+# distribution
+
+
+# Virtual Environments
+env/
+
+# Passwords and credentials
+FRED/*.json
+
+
+# Python cache 
+__pycache__/
+*.py[cod]
+
+# IDE specific files 
+
+.idea/
+.vscode/
+
+# Environment specific files
+.env
+
