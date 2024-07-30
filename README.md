@@ -20,4 +20,4 @@ The list of other resources some of which this repository is based on is here, i
   - `fredapi` package for `Python` found [here](https://pypi.org/project/fredapi/)
 - Youtube
   - [Adam Getbags](https://youtu.be/M_jswxN3iwI?si=RTXUkcywrLjxFD8P)
-  - [Michael Cortes](https://youtu.be/RW-Y1Sqvj6g?si=AX-yan8zYV01WzNu) much of the `python` code in this repository is adapted from this video
+  - [Michael Cortes](https://youtu.be/RW-Y1Sqvj6g?si=AX-yan8zYV01WzNu) much of the `python` code for getting FRED in this repository is adapted from this video
