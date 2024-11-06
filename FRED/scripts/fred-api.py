@@ -38,6 +38,24 @@ class FredPy:
     
     
     def get_series(self, seriesID, start, end, units):
+        
+        """
+    This function retrieves a time series data from the Federal Reserve Economic Data (FRED) API.
+    
+    Parameters:
+    seriesID (str): The unique identifier for the series on FRED.
+    start (str): The start date of the series in 'YYYY-MM-DD' format.
+    end (str): The end date of the series in 'YYYY-MM-DD' format.
+    units (str): The units of measurement for the series.
+    
+    Returns:
+    pandas.DataFrame: A DataFrame containing the date and value of the series. The date is in datetime format,
+    and the value is converted to float. The column name of the value is the seriesID.
+    
+    Raises:
+    Exception: If the API key is not provided or if the API returns a bad response.
+    """
+
         url_formatted = self.url.format(
             seriesID=seriesID, 
             start=start, 
