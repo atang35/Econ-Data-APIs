@@ -1,0 +1,56 @@
+---
+title: "Fred API with  R"
+author: Atang Mahlomaholo
+date: now
+---
+
+
+## This will install necessary 
+
+```{r}
+#| echo: false
+#| include: true
+#| label: setup
+#| warning: false
+
+
+library(httr2)
+library(rmarkdown)
+```
+
+## Source the script that has the Functions
+
+```{r}
+#| include: true
+#| echo: false
+#| label: functions
+
+# get an api key from the fred website
+
+
+json_file <- jsonlite::fromJSON("../secrets.json")
+
+fred_api <- json_file$api_key
+
+source("../scripts/fred-api.R")
+
+```
+
+
+
+## Get the `Fed Funds Rate` 
+
+
+```{r}
+
+get_fred_series
+
+fed_funds_df <- 
+  get_fred_series(
+    "DFF",
+    "2000-01-01",
+    "2024-11-01",
+    "lin",
+    fred_api)
+
+```

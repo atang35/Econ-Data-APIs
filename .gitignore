@@ -23,3 +23,4 @@ __pycache__/
 # Environment specific files
 .env
 
+.Rproj.user
