@@ -1,12 +1,5 @@
 
-# necessary package
-  
-  
-library(httr2)
-library(jsonlite)
-library(glue)
-library(tidyverse)
-
+# install and load necessary packages/libraries
 
 packages <- c("httr2", "jsonlite", "tidyverse", "glue")
 
@@ -29,16 +22,9 @@ library(tidyverse)
 library(purrr)  # For `pluck`
 library(dplyr)  # For `glimpse`
 
-# write a functions that will use httr2 package
 
 
-# import api_key
-
-# json_file <- jsonlite::fromJSON("FRED/secrets.json")
-# 
-# fred_api <- json_file$api_key
-
-
+# write a function that will use httr2 package
 
 
 get_fred_series <- function(seriesID, start, end, units, api_key) {
@@ -72,7 +58,8 @@ get_fred_series <- function(seriesID, start, end, units, api_key) {
             value = x |> pluck('value')
           )
         }
-      ) 
+      ) |> 
+      setNames(c("date", seriesID))
     
     return(response_json)
     
@@ -86,10 +73,32 @@ get_fred_series <- function(seriesID, start, end, units, api_key) {
 
 
 
-# dff_data <- get_fred_series(
-#   "DFF",
-#   "2020-01-01",
-#   "2023-01-01",
-#   "lin",
-#   fred_api)
+get_more_series <- 
+  function(seriesIDs, start, end, units, api_key) {
+    
+    
+    # initialise an empty list that will store the series 
+    
+    series_list <- lapply(seriesIDs, function(seriesID) {
+      
+      # get series data 
+      
+      series_data <- get_fred_series(seriesID, start, end, units, api_key)
+      
+      # now let us rename our columns accordingly; to match seriesID for ease of interpretation
+      
+      names(series_data)[2] <- seriesID
+      return(series_data)
+    })
+    
+    
+    # join these datasets into one data frame
+    
+    
+    combined_data <- purrr::reduce(
+      series_list,
+      dplyr::full_join, by = 'date')
+    
+    return(combined_data)
+  }
 

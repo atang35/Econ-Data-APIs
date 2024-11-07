@@ -21,9 +21,10 @@ library(rmarkdown)
 ## Source the script that has the Functions
 
 ```{r}
-#| include: true
+#| include: false
 #| echo: false
-#| label: functions
+#| warning: false
+#| label: import-function
 
 # get an api key from the fred website
 
@@ -31,6 +32,7 @@ library(rmarkdown)
 json_file <- jsonlite::fromJSON("../secrets.json")
 
 fred_api <- json_file$api_key
+
 
 source("../scripts/fred-api.R")
 
@@ -42,8 +44,11 @@ source("../scripts/fred-api.R")
 
 
 ```{r}
+#| include: true
+#| warning: false
+#| echo: false
+#| label: use-function
 
-get_fred_series
 
 fed_funds_df <- 
   get_fred_series(
@@ -53,4 +58,41 @@ fed_funds_df <-
     "lin",
     fred_api)
 
+
+TR_rate_dff <- 
+  get_fred_series(
+    "T10YFF",
+    "2000-01-01",
+    "2024-11-01",
+    "lin",
+    fred_api
+  )
+
+fed_funds_df
+
+TR_rate_dff
+
+```
+
+
+
+## What if you want to download multiple series?
+
+
+```{r}
+#| label: multiple-series
+#| include: true
+#| warning: false
+#| echo: false
+
+
+more_series <- 
+  get_more_series(
+    c("DFF", "T10YFF", "DCOILBRENTEU"),
+    "2000-01-01",
+    "2024-11-01",
+    "lin",
+    fred_api)
+
+more_series
 ```
