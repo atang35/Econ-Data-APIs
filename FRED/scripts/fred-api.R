@@ -99,6 +99,12 @@ get_more_series <-
       series_list,
       dplyr::full_join, by = 'date')
     
+    combined_data <- 
+      combined_data |> 
+      dplyr::mutate(date = lubridate::as_date(date))
+    
+    combined_data[-1] <- lapply(combined_data[-1], as.numeric)
+    
     return(combined_data)
   }
 

@@ -5,7 +5,7 @@ date: now
 ---
 
 
-## This will install necessary 
+## This will load necessary libraries
 
 ```{r}
 #| echo: false
@@ -95,4 +95,5 @@ more_series <-
     fred_api)
 
 more_series
+
 ```
