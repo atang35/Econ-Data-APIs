@@ -11,7 +11,6 @@ class WBPy:
         self.url = "https://api.worldbank.org/v2/" + \
                     "country/{country}/indicator/" + \
                     "{indicator}?/" + \
-                    "format=json" + \
                     "&date={start}:{end}"
 
     def get_data(self, country, indicator, start, end):
