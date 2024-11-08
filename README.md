@@ -8,8 +8,9 @@ This repository offers a programmatic way to interact with various economic data
 
 - Functions to access different data sources easily
 - support for `R` and `Python`
-- user written functions, I try not to use existing packages and/or libraries as they sometimes stop working as soon as the developer stops supporting them
-- There are several awesome packages already developed:
+- user written functions. 
+  - I try not to use existing packages and/or libraries as they sometimes stop working as soon as the developer stops supporting them
+- That said, there are several awesome packages already developed:
 
 ## Alternative Resources
 
@@ -18,6 +19,11 @@ The list of other resources some of which this repository is based on is here, i
 - Packages
   - `fredr` package for `R` found [here](https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html)
   - `fredapi` package for `Python` found [here](https://pypi.org/project/fredapi/)
+  
+  
+## Useful Resources Used to make this Repo
+  
 - Youtube
   - [Adam Getbags](https://youtu.be/M_jswxN3iwI?si=RTXUkcywrLjxFD8P)
   - [Michael Cortes](https://youtu.be/RW-Y1Sqvj6g?si=AX-yan8zYV01WzNu) much of the `python` code for getting FRED in this repository is adapted from this video
+  - [Albert Rapp](https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1630s)'s guide to using `r` and `httr2` library to get data through APIs deserves an honourable mention. 

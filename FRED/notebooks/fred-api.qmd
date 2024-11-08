@@ -27,8 +27,6 @@ library(rmarkdown)
 #| label: import-function
 
 # get an api key from the fred website
-
-
 json_file <- jsonlite::fromJSON("../secrets.json")
 
 fred_api <- json_file$api_key
@@ -96,4 +94,18 @@ more_series <-
 
 more_series
 
+
+
+
+# do data visuals using the data that has been downloaded 
+
+
+fig1 <- more_series |> 
+  ggplot2::ggplot(aes(x = date)) +
+  geom_line(aes(y = DFF)) +
+  geom_line(aes(y = T10YFF), 
+            linetype = "dashed",
+            color = "red")
+
+fig1 + theme_bw()
 ```
