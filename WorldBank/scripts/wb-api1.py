@@ -8,7 +8,7 @@ class WBPy:
         self.url = "https://api.worldbank.org/v2/" + \
                     "country/{country}/indicator/" + \
                     "{indicator}?" + \
-                    "date={start}:{end}&format=xml"
+                    "date={start}:{end}&format=json"
 
     def get_data(self, country, indicator, start, end):
         url = self.url.format(
